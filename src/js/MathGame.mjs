@@ -105,13 +105,13 @@ export default class MathGame {
       const alias = document.getElementById('alias').value;
       const operator = document.querySelector('input[name="operator"]:checked').value;
       const level = document.querySelector('input[name="level"]:checked').value;
-      const max1 = parseInt(document.getElementById('max1').value);
-      const max2 = parseInt(document.getElementById('max2').value);
+     //  const max1 = parseInt(document.getElementById('max1').value);
+     // const max2 = parseInt(document.getElementById('max2').value);
   
       this.setAlias(alias);
       this.setOperator(operator);
       this.setLevel(level);
-      this.setMaxNumbers(max1, max2);
+     // this.setMaxNumbers(max1, max2);
   
       // Start the game with updated settings
       this.startGame();
