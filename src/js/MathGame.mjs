@@ -44,31 +44,31 @@ export default class MathGame {
  
             <label class="operationLabels" title="Add Operator">
                             <input type="radio" id="sum" name="operator" value="sum" ${this.operator === 'sum' ? 'checked' : ''} required class="operationRadio">
-                            <img src="public/images/plusIcon-green-100.webp" alt="Addition Icon" class="operationImage checked">
-                            <img src="public/images/plusIcon-100.webp" alt="Addition Icon" class="operationImage">
+                            <img src="/images/plusIcon-green-100.webp" alt="Addition Icon" class="operationImage checked">
+                            <img src="/images/plusIcon-100.webp" alt="Addition Icon" class="operationImage">
             </label>
                   
 
             <label class="operationLabels" title="Subtract Operator">
                 <input type="radio" id="sub" name="operator" value="sub" ${this.operator === 'sub' ? 'checked' : ''} required class="operationRadio">
-                            <img src="public/images/minusIcon-green-100.webp" alt="Subtraction Icon" class="operationImage checked">
-                            <img src="public/images/minusIcon-100.webp" alt="Subtraction Icon" class="operationImage">
+                            <img src="/images/minusIcon-green-100.webp" alt="Subtraction Icon" class="operationImage checked">
+                            <img src="/images/minusIcon-100.webp" alt="Subtraction Icon" class="operationImage">
             </label>                          
                           
             <label class="operationLabels" title="Multiply Operator">
                 <input type="radio" id="mul" name="operator" value="mul"  ${this.operator === 'mul' ? 'checked' : ''} required
                           class="operationRadio">
-                        <img src="public/images/multiplyIcon-green-100.webp" alt="Multiplication Icon"  class="operationImage checked">
+                        <img src="/images/multiplyIcon-green-100.webp" alt="Multiplication Icon"  class="operationImage checked">
 
-                        <img src="public/images/multiplyIcon-100.webp" alt="Multiplication Icon" class="operationImage">
+                        <img src="/images/multiplyIcon-100.webp" alt="Multiplication Icon" class="operationImage">
             </label>
 
             <label class="operationLabels" title="Divide Operator">
                 <input type="radio" id="divide" name="operator" value="div"  ${this.operator === 'div' ? 'checked' : ''} required
                           class="operationRadio">
-                        <img src="public/images/divideIcon-green-100.webp" alt="Division Icon" class="operationImage checked">
+                        <img src="/images/divideIcon-green-100.webp" alt="Division Icon" class="operationImage checked">
 
-                        <img src="public/images/divideIcon-100.webp" alt="Division Icon" class="operationImage">
+                        <img src="/images/divideIcon-100.webp" alt="Division Icon" class="operationImage">
             </label>              
             
             </div>
