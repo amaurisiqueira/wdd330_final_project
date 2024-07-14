@@ -1,0 +1,605 @@
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --green:#7ED321;
+  --bg: #F8E71C;
+  --font-headline:'Bangers', cursive;
+  --font-secundary:'Bowlby One SC', cursive;
+  --font-body:'Verdana', cursive;
+
+}
+
+h1{
+  font-family: var(--font-headline);
+} 
+  
+h2{
+  font-family: var(--font-secundary);
+} 
+
+
+h1,
+h2 {
+  text-align: center;
+}
+body{
+  background-color: lightyellow;
+}
+main {
+  max-width: 500px;
+  margin: 20px auto 20px auto;
+  background-color: var(--green);
+  padding:25px;
+  border-radius: 15px;
+  box-shadow: 5px 3px 5px var(--white);
+}
+footer{
+  margin:auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.logo {
+  line-height: 60px;
+  max-width: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 30px;
+  text-align: right;
+  font-family: var(--font-headline);
+  margin: auto;
+  padding: 0;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+}
+
+.logo a {
+  text-decoration: none;
+  color: var(--font-body);
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+
+.logo a .highlight {
+  padding-left: 10%;
+  margin: 0;
+}
+.config-game {
+  max-width: 90%;
+  margin: auto;
+  font-family:  var(--font-body);
+}
+
+.config-game form {
+  margin: auto;
+  text-align: center;
+}
+
+.levelSelector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 10px auto 10px auto;
+  border-bottom: solid;
+  padding:10px
+}
+.levelSelector .levelLabels {
+  display: flex;
+  justify-content: left; /* Alinea las etiquetas a la izquierda */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding-left: 20%;
+}
+
+.operationSelector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 10px auto 10px auto;
+  border-bottom: solid;
+  padding:10px
+}
+
+.operationLabels{
+  margin:5px;
+}
+
+.maxNumber {
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 10px auto 10px auto;
+}
+
+input[type=number] {
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 10px;
+  width: 90%;
+  margin:auto;
+}
+
+input[type=text] {
+  display: block;
+  width: 90%;
+  font-size: 2em;
+  text-align: center;
+  border-radius: 10px;
+  margin:auto;
+}
+
+label {
+  margin: auto;
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  
+}
+
+
+.operationImage {
+  border-radius: 5px;
+  max-width: 60px;
+  height: auto;
+  box-shadow: 0 0 3px .5px #610111;
+}
+
+
+/* HIDE RADIO */
+.operationRadio,
+.answerRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.submitBtn {
+  cursor: pointer;
+  background-image:var(--bg);
+  background: var(--bg);
+  color: red;
+  font-size: 2em;
+  border-style: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: auto;
+}
+
+
+/* IMAGE STYLES */
+.operationRadio~.operationImage,
+.operationRadio~.operationImage.checked {
+  cursor: pointer;
+  transition: opacity .5s ease-in-out;
+}
+
+/* CHECKED STYLES */
+.operationRadio:checked~.operationImage {
+  opacity: 0;
+}
+
+.operationRadio:checked~.operationImage.checked {
+  opacity: 1;
+  animation: reveal 1s;
+}
+
+.operationRadio:checked+.operationImage.checked,
+.operationRadio:not(:checked)~.operationImage {
+  display: block;
+}
+
+.operationRadio:not(:checked)+.operationImage.checked,
+.operationRadio:checked~.operationImage {
+  display: none;
+}
+
+
+.alert {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: linear-gradient(rgb(190, 236, 190), lightgreen);
+  margin:10px auto 10px auto;
+  max-width:70%;
+  box-shadow: 2px 2px 5px rgb(122, 202, 122);
+  border-radius: 10px;
+}
+
+.closeAlert {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.closeAlert:hover {
+  background-color: red;
+  color: white;
+}
+
+.questionForm {
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.questionDiv{
+  width:90%;
+  margin:auto;
+  }
+
+.question{
+  margin:auto;
+  border-style: solid;
+  border-radius: 5px;
+  text-align: center;
+  max-width:60%;
+  padding: 20px;
+  box-shadow: 2px 3px 5px darkcyan;
+}
+
+.question,.answerLabel{
+  border-color:darkcyan;
+}
+
+.answerDiv{
+  width: 80%;
+}
+
+
+.hint{
+  margin:5px;
+  width:60px;
+  height:auto;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+.answerLabel{
+  border-style: solid;
+  border-radius: 5px;
+  text-align: center;
+  max-width:60%;
+  margin:10px auto 10px auto;;
+  padding: 20px;
+  box-shadow: 2px 3px 5px darkcyan;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 100px;
+  aspect-ratio: 1;
+  display: flex;
+  transform-origin: 0% 150%;
+  animation: l20-0 2s infinite linear;
+  margin:auto;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  flex: 1;
+  background: #f03355;
+  animation: l20-1 1s infinite linear alternate;
+  border-radius: 100px 0 0 100px;
+  transform-origin: 100% 100%;
+}
+
+.loader:after {
+  border-radius: 0 100px 100px 0;
+  transform-origin: 0% 100%;
+  --s: -1;
+}
+
+#endgame-buttons, .score-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.score-box p {
+  background-image: linear-gradient(to right, lightyellow,rgba(255, 255, 224, 0.87));
+  font-size: 1.25em;
+  padding:20px;
+  border-radius: 10px;
+  text-align: center;
+}
+#endgame-buttons .submitBtn{
+  margin-bottom:10px;
+  font-size:1.25em;
+}
+.submitBtn:visited, .submitBtn{
+ /* color:white;*/
+  text-decoration: none;
+}
+.submitBtn p{
+  margin: 0;
+}
+
+
+@keyframes l20-0 {
+
+  0%,
+  10% {
+    transform: translateY(0) scaleY(1)
+  }
+
+  49.99% {
+    transform: translateY(-100%) scaleY(1)
+  }
+
+  50% {
+    transform: translateY(-100%) scaleY(-1)
+  }
+
+  90%,
+  100% {
+    transform: translateY(-200%) scaleY(-1)
+  }
+}
+
+@keyframes l20-1 {
+
+  0%,
+  20% {
+    transform: rotate(0deg) translate(0, 0) rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(calc(var(--s, 1)*-90deg)) translate(0, 0) rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(calc(var(--s, 1)*-90deg)) translate(0, -20px) rotate(calc(var(--s, 1)*-90deg))
+  }
+}
+
+
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.confetti-container{
+  background-color: #101e35;
+  font-size: 10px; /* Makes 1rem = 10px */
+  user-select: none;
+  z-index: 10;
+  max-width: 500px;
+  margin:auto;
+}
+
+
+
+.confetti-container label {
+  color: white;
+  font-size: 1.5rem;
+}
+.confetti-container input {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.confetti {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+.confetti .square {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--bg);
+  transform: rotate(140deg);
+}
+
+.confetti .rectangle {
+  width: 1rem;
+  height: 0.5rem;
+  background-color: var(--bg);
+}
+
+.confetti .hexagram {
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 1rem solid var(--bg);
+  position: relative;
+}
+
+.confetti .hexagram:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 1rem solid var(--bg);
+  position: absolute;
+  top: 0.33rem;
+  left: -0.5rem;
+}
+
+.confetti .pentagram {
+  width: 0rem;
+  height: 0rem;
+  display: block;
+  margin: 0.5rem 0;
+  border-right: 1rem solid transparent;
+  border-bottom: 0.7rem solid var(--bg);
+  border-left: 1rem solid transparent;
+  transform: rotate(35deg);
+  position: relative;
+}
+.confetti .pentagram:before {
+  border-bottom: 0.8rem solid var(--bg);
+  border-left: 0.3rem solid transparent;
+  border-right: 0.3rem solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -0.45rem;
+  left: -0.65rem;
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+.confetti .pentagram:after {
+  position: absolute;
+  display: block;
+  color: var(--bg);
+  top: 0.03rem;
+  left: -1.05rem;
+  width: 0rem;
+  height: 0rem;
+  border-right: 1rem solid transparent;
+  border-bottom: 0.7rem solid var(--bg);
+  border-left: 1rem solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}
+
+.confetti .dodecagram {
+  background: var(--bg);
+  width: 8px;
+  height: 8px;
+  position: relative;
+}
+
+.confetti .dodecagram:before {
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: var(--bg);
+  transform: rotate(30deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.confetti .dodecagram:after {
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: var(--bg);
+  transform: rotate(60deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.confetti .wavy-line {
+  position: relative;
+}
+.confetti .wavy-line::after,
+.confetti .wavy-line::before {
+  content: "";
+  height: 10px;
+  width: 80px;
+  background-size: 20px 10px;
+  position: absolute;
+  left: -9rem;
+  transform: rotate(90deg);
+}
+
+.confetti .wavy-line::before {
+  background-image: linear-gradient(
+    45deg,
+    transparent,
+    transparent 50%,
+    var(--bg) 50%,
+    transparent 60%
+  );
+  top: 1rem;
+}
+.confetti .wavy-line::after {
+  background-image: linear-gradient(
+    -45deg,
+    transparent,
+    transparent 50%,
+    var(--bg) 50%,
+    transparent 60%
+  );
+}
+
+
+.confetti i {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0.2rem;
+  animation-name: confetti;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: calc(60s / var(--speed));
+}
+
+.confetti i:nth-child(even) {
+  transform: rotate(90deg);
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .logo{
+    flex-direction: column;
+    align-items: center;
+  }
+  #endgame-buttons, .score-box{
+    flex-direction: column;
+  }
+
+  .hint{
+    margin:5px;
+    width:60px;
+    height:auto;
+    position:static;
+  }
+
+  .alert {
+    flex-direction: column;
+  }
+  .operationSelector{
+    flex-wrap: wrap;
+  }
+}
