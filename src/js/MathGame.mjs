@@ -6,8 +6,7 @@ export default class MathGame {
       this.alias = '';
       this.operator = '';
       this.level = '';
-      this.max1 = 10;
-      this.max2 = 10;
+ 
     }
   
     setAlias(alias) {
@@ -25,12 +24,7 @@ export default class MathGame {
     setLevel(level) {
       this.level = level;
     }
-  
-    setMaxNumbers(max1, max2) {
-      this.max1 = max1;
-      this.max2 = max2;
-    }
-  
+   
     startGame() {
       // Construct the game interface template
       const gameTemplate = `
@@ -109,20 +103,13 @@ export default class MathGame {
       const alias = document.getElementById('alias').value;
       const operator = document.querySelector('input[name="operator"]:checked').value;
       const level = document.querySelector('input[name="level"]:checked').value;
-     //  const max1 = parseInt(document.getElementById('max1').value);
-     // const max2 = parseInt(document.getElementById('max2').value);
+      
   
       this.setAlias(alias);
       this.setOperator(operator);
       this.setLevel(level);
-     // this.setMaxNumbers(max1, max2);
-     //  window.mathGame = this;
-     // console.log('Antes de Definir window.mathGame:');
-     // console.log('Definiendo window.mathGame:', window.mathGame);
-     // Start the game with updated settings
-    //  this.startGame();
-
-     // Almacenar datos en localStorage
+   
+       // Almacenar datos en localStorage
      localStorage.setItem('mathGame', JSON.stringify(this));
      // Redirect to quiz page
      window.location.href = 'quiz/index.html';
