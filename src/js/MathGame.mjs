@@ -1,5 +1,5 @@
 // main.js
-import { loadHeaderFooter } from "./utils.js";
+
 
 export default class MathGame {
     constructor() {
@@ -14,6 +14,10 @@ export default class MathGame {
       this.alias = alias;
     }
   
+    getAlias() {
+      return this.alias;
+    }
+
     setOperator(operator) {
       this.operator = operator;
     }
@@ -33,7 +37,7 @@ export default class MathGame {
         <h1>Math Game</h1>
         <div class="config-game">
          
-          <form id="gameForm">
+          <form action="quiz" method="GET" id="gameForm">
            <h2>Your Name:</h2>
               <input type="text" id="alias" name="alias" value="${this.alias}" required> 
            
@@ -112,9 +116,18 @@ export default class MathGame {
       this.setOperator(operator);
       this.setLevel(level);
      // this.setMaxNumbers(max1, max2);
-  
-      // Start the game with updated settings
-      this.startGame();
+     //  window.mathGame = this;
+     // console.log('Antes de Definir window.mathGame:');
+     // console.log('Definiendo window.mathGame:', window.mathGame);
+     // Start the game with updated settings
+    //  this.startGame();
+
+     // Almacenar datos en localStorage
+     localStorage.setItem('mathGame', JSON.stringify(this));
+     // Redirect to quiz page
+     window.location.href = 'quiz/index.html';
+
+     
     }
   }
   
@@ -123,5 +136,5 @@ export default class MathGame {
   
   // Initialize the game
   game.startGame();
-  loadHeaderFooter();
+
   

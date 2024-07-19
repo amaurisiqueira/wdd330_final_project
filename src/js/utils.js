@@ -1,3 +1,4 @@
+import displayWeather from './WeatherApi.js';
 
 // function to take an optional object and a template and insert the objects as HTML into the DOM
 export function renderWithTemplate(template, parentElement, data, callback) {
@@ -23,4 +24,5 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   
     renderWithTemplate(headerTemplate, headerElement);
     renderWithTemplate(footerTemplate, footerElement);
+    displayWeather();
   }

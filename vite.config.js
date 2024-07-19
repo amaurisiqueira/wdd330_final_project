@@ -13,7 +13,8 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main:  "./src/index.html"
+        main:  "./src/index.html",
+        quiz:  "./src/quiz/index.html"
       },
     },
   },

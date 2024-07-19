@@ -238,7 +238,9 @@ label {
   padding: 0;
 }
 .questionDiv{
-  width:90%;
+  font-family: var(--font-headline);
+  font-size: 2em;
+
   margin:auto;
   }
 
@@ -256,8 +258,13 @@ label {
   border-color:darkcyan;
 }
 
+ 
+
 .answerDiv{
   width: 80%;
+  display: flex;
+  flex-direction: column;
+
 }
 
 
@@ -271,10 +278,13 @@ label {
 }
 
 .answerLabel{
+  font-family: var(--font-headline);
+  font-size: 2em;
   border-style: solid;
   border-radius: 5px;
   text-align: center;
   max-width:60%;
+  width: 100%;
   margin:10px auto 10px auto;;
   padding: 20px;
   box-shadow: 2px 3px 5px darkcyan;
@@ -330,6 +340,51 @@ label {
 .submitBtn p{
   margin: 0;
 }
+
+
+
+/* Define la animación para una respuesta correcta */
+@keyframes correctAnswerAnimation {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #a3d977; /* Color verde claro */
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+/* Define la animación para una respuesta incorrecta */
+@keyframes incorrectAnswerAnimation {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #f08080; /* Color rojo claro */
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+.correct-answer {
+  animation: correctAnswerAnimation 1s ease;
+}
+
+.incorrect-answer {
+  animation: incorrectAnswerAnimation 1s ease;
+}
+
+/* */
+
+
+
+
+
+
+
 
 
 @keyframes l20-0 {
