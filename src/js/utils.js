@@ -26,3 +26,15 @@ export function renderWithTemplate(template, parentElement, data, callback) {
     renderWithTemplate(footerTemplate, footerElement);
     displayWeather();
   }
+
+
+
+  export function getTiemeLimit(level) {
+   // console.log(`function getTiemeLimit(level):${level}` );
+
+    if(level==='easy') return 22;
+    if(level==='medium') return 12;
+    return 7;
+  }
+                
+ 

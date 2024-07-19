@@ -25,6 +25,7 @@ async function startQuiz() {
        alias = gameData.alias;
        operator = gameData.operator;
        level = gameData.level;
+       console.log(`startQuiz level:${level}`);
    } else {
        console.error('No localStorage data');
    }
@@ -34,7 +35,9 @@ async function startQuiz() {
 
   try {
     const questions = await questionGenerator.generateQuestions(level,operator);
-    const quiz = new Quiz(questions,alias);
+
+    console.log(`before Quiz level:${level}`);
+    const quiz = new Quiz(questions,alias , level);
     
     const quizContainer = document.querySelector('main');
     quiz.renderQuestion(quizContainer);

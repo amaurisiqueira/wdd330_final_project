@@ -322,6 +322,10 @@ label {
   justify-content: space-around;
 }
 
+.score {
+  padding-right: 10px;
+}
+
 .score-box p {
   background-image: linear-gradient(to right, lightyellow,rgba(255, 255, 224, 0.87));
   font-size: 1.25em;

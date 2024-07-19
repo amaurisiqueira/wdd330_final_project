@@ -1,5 +1,6 @@
 // main.js
 
+import { getTiemeLimit } from "./utils.js";
 
 export default class MathGame {
     constructor() {
@@ -74,15 +75,15 @@ export default class MathGame {
              <h2>Your Game Mode:</h2>
               
              <label class="levelLabels">
-                <input type="radio" id="easy" name="level" value="easy" ${this.level === 'easy' ? 'checked' : ''} required>Easy
+                <input type="radio" id="easy" name="level" value="easy" ${this.level === 'easy' ? 'checked' : ''} required>Easy (${getTiemeLimit( 'easy')}sec) 
               </label> 
               
               <label class="levelLabels">
-                <input type="radio" id="medium" name="level" value="medium" ${this.level === 'medium' ? 'checked' : ''} required>Medium
+                <input type="radio" id="medium" name="level" value="medium" ${this.level === 'medium' ? 'checked' : ''} required>Medium (${getTiemeLimit( 'medium')}sec)
               </label>
 
               <label class="levelLabels">
-                <input type="radio" id="hard" name="level" value="hard" ${this.level === 'hard' ? 'checked' : ''} required>Hard
+                <input type="radio" id="hard" name="level" value="hard" ${this.level === 'hard' ? 'checked' : ''} required>Hard (${getTiemeLimit( 'hard')}sec) ) 
               </label>
 
             </div>
@@ -93,6 +94,7 @@ export default class MathGame {
   
       // Set the main content to the generated game template
       document.querySelector('main').innerHTML = gameTemplate;
+      document.getElementById('easy').checked = true;
   
       // Add event listener for form submission
       document.getElementById('gameForm').addEventListener('submit', this.handleFormSubmit.bind(this));
