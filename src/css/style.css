@@ -2,7 +2,7 @@
   --blue: #1e90ff;
   --white: #ffffff;
   --green:#7ED321;
-  --bg: #F8E71C;
+  --yellow: #F8E71C;
   --font-headline:'Bangers', cursive;
   --font-secundary:'Bowlby One SC', cursive;
   --font-body:'Verdana', cursive;
@@ -23,7 +23,7 @@ h2 {
   text-align: center;
 }
 body{
-  background-color: lightyellow;
+  background-color: var(--white);
 }
 main {
   max-width: 500px;
@@ -115,17 +115,12 @@ footer{
   margin:5px;
 }
 
-.maxNumber {
-  align-items: center;
-  justify-content: center;
-  max-width: 90%;
-  margin: 10px auto 10px auto;
-}
+ 
 
 input[type=number] {
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 90%;
   margin:auto;
 }
@@ -156,7 +151,7 @@ label {
 }
 
 
-/* HIDE RADIO */
+ 
 .operationRadio,
 .answerRadio {
   position: absolute;
@@ -168,25 +163,26 @@ label {
 
 .submitBtn {
   cursor: pointer;
-  background-image:var(--bg);
-  background: var(--bg);
-  color: red;
-  font-size: 2em;
+  font-family: var(--font-headline);
+  background-image:var(--yellow);
+  background: var(--yellow);
+  color: var(--blue);
+  font-size: 2.1em;
   border-style: none;
-  border-radius: 30px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 20px 20px 20px 20px;
   margin: auto;
 }
 
 
-/* IMAGE STYLES */
+ 
 .operationRadio~.operationImage,
 .operationRadio~.operationImage.checked {
   cursor: pointer;
   transition: opacity .5s ease-in-out;
 }
 
-/* CHECKED STYLES */
+ 
 .operationRadio:checked~.operationImage {
   opacity: 0;
 }
@@ -206,28 +202,7 @@ label {
   display: none;
 }
 
-
-.alert {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  background-image: linear-gradient(rgb(190, 236, 190), lightgreen);
-  margin:10px auto 10px auto;
-  max-width:70%;
-  box-shadow: 2px 2px 5px rgb(122, 202, 122);
-  border-radius: 10px;
-}
-
-.closeAlert {
-  cursor: pointer;
-  padding: 10px;
-}
-
-.closeAlert:hover {
-  background-color: red;
-  color: white;
-}
+ 
 
 .questionForm {
   position:relative;
@@ -236,6 +211,7 @@ label {
   justify-content: center;
   align-items: center;
   padding: 0;
+  position: relative;
 }
 .questionDiv{
   font-family: var(--font-headline);
@@ -264,7 +240,9 @@ label {
   width: 80%;
   display: flex;
   flex-direction: column;
-
+  font-family: var(--font-body);
+  font-size: 2em ;
+  color: var(--blue);
 }
 
 
@@ -278,16 +256,34 @@ label {
 }
 
 .answerLabel{
-  font-family: var(--font-headline);
-  font-size: 2em;
+ 
+  font-size: 1.3em;
   border-style: solid;
   border-radius: 5px;
   text-align: center;
-  max-width:60%;
+  max-width:100%;
   width: 100%;
   margin:10px auto 10px auto;;
-  padding: 20px;
-  box-shadow: 2px 3px 5px darkcyan;
+  padding: 10px;
+  box-shadow: 2px 3px 5px var(--blue);
+}
+
+.answer {
+  font-family:var(--font-headline);
+  background-color: var(--yellow);
+  color:var(--blue);
+}
+/*
+.answer:hover {
+ 
+  transform: scale(1.05);
+  background-color: darkblue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+*/
+.answer.active {
+  background-color: #45a049;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* HTML: <div class="loader"></div> */
@@ -344,8 +340,17 @@ label {
 .submitBtn p{
   margin: 0;
 }
+/*Numero de consulta*/
+.questionId {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 10px;  
+  font-size: 2em;  
+  color: #333;
+  font-family:  var(--font-body);
 
-
+}
 
 /* Define la animación para una respuesta correcta */
 @keyframes correctAnswerAnimation {
@@ -381,30 +386,145 @@ label {
   animation: incorrectAnswerAnimation 1s ease;
 }
 
-/* Ocultar el popup por defecto */
-#popup.hidden {
+.hidden {
   display: none;
 }
+/* end of animation*/
 
+/* Ocultar el popup por defecto */
+/* Popup container */
 .popup {
-  position: fixed;
+  position: fixed; /* Fija el popup en la pantalla */
   top: 0;
   left: 0;
+  width: 100vw;  
+  height: 100vh;  
+  background-color: rgba(0, 0, 0, 0.5);  
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+  transition: opacity 0.3s ease;
+}
+
+.popup.hidden {
+  display: none; /* Oculta el modal cuando es necesario */
+}
+
+/* Card flipping container */
+.popup-card {
+  position: relative;
+  width: 350px; /* Ajusta el ancho según sea necesario */
+  height: 200px; /* Ajusta la altura según sea necesario */
+  perspective: 1000px; /* Profundidad para el efecto de flip */
+}
+
+/* Card front and back */
+.popup-card-front,
+.popup-card-back {
+  position: absolute;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  height: 80%;
+  backface-visibility: hidden; /* Oculta el reverso cuando se voltea */
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px; /* Bordes redondeados */
+  font-family: var(--font-body);
 }
 
+/* General styles for the popup content */
 .popup-content {
-  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ /* justify-content: space-between;*/
+  height: 100%;
   padding: 20px;
-  border-radius: 5px;
+}
+
+
+ 
+/* Style for the alias (first <p> tag) */
+.popup-card-front p:first-of-type , 
+.popup-card-back  p:first-of-type{
+  margin: 0;
+  padding: 0;
+  font-size: 2.2em; /* Ajusta según sea necesario */
+  text-align: center;
+  color: var(--blue);
+  font-weight: bold;
+  width: 100%;
+}
+
+/* Style for the question (second <p> tag) */
+.popup-card-front p:nth-of-type(2),
+.popup-card-back p:nth-of-type(2)  {
+ /* margin-top: 1cm;*/
+  text-align: left;
+  width: 100%;
+  font-size: 1.5em; /* Ajusta según sea necesario */
+  color: var(--blue);
+}
+
+/* Style for the buttons */
+.popup-card-front button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#confirmButton {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+}
+
+#cancelButton {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+}
+
+/* Container for the buttons to ensure they are centered */
+.popup-card-front .button-container ,
+.popup-card-back .button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Card flipping animation */
+.popup-card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.popup-card.flip {
+  transform: rotateY(180deg);
+}
+
+/* Front side styling */
+.popup-card-front {
+  background-color: #fff; /* Fondo blanco para el contenido del modal */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
   text-align: center;
 }
 
+/* Back side styling */
+.popup-card-back {
+  background-color: #f8f9fa; /* Fondo más claro para el reverso */
+  transform: rotateY(180deg); /* Gira el reverso 180 grados */
+  text-align: center;
+}
 
-
-
+.popup-card-back p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+}
+ 

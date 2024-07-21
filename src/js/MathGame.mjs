@@ -70,6 +70,14 @@ export default class MathGame {
                         <img src="/images/divideIcon-100.webp" alt="Division Icon" class="operationImage">
             </label>              
             
+            <label class="operationLabels" title="Trivia Operator">
+                <input type="radio" id="trivia" name="operator" value="tri"  ${this.operator === 'tri' ? 'checked' : ''} required
+                          class="operationRadio">
+                        <img src="/images/inteligencia_verde.webp" alt="Trivia Icon" class="operationImage checked">
+
+                        <img src="/images/inteligencia_roja.webp" alt="Trivia Icon" class="operationImage">
+            </label>      
+
             </div>
             <div class="levelSelector">
              <h2>Your Game Mode:</h2>

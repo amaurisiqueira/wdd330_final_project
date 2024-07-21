@@ -32,7 +32,7 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   export function getTiemeLimit(level) {
    // console.log(`function getTiemeLimit(level):${level}` );
 
-    if(level==='easy') return 22;
+    if(level==='easy') return 220000;
     if(level==='medium') return 12;
     return 7;
   }
