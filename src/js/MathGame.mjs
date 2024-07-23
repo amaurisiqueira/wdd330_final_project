@@ -80,21 +80,18 @@ export default class MathGame {
 
             </div>
             <div class="levelSelector">
-             <h2>Your Game Mode:</h2>
-              
-             <label class="levelLabels">
-                <input type="radio" id="easy" name="level" value="easy" ${this.level === 'easy' ? 'checked' : ''} required>Easy (${getTiemeLimit( 'easy')}sec) 
-              </label> 
-              
-              <label class="levelLabels">
-                <input type="radio" id="medium" name="level" value="medium" ${this.level === 'medium' ? 'checked' : ''} required>Medium (${getTiemeLimit( 'medium')}sec)
-              </label>
+                        <h2>Your Game Mode:</h2>
+                        <label class="levelLabels"  id="labelEasy" >
+                            <input type="radio" id="easy" name="level" value="easy" ${this.level === 'easy' ? 'checked' : ''} required>Easy (${getTiemeLimit('easy')} sec) 
+                        </label> 
+                        <label class="levelLabels" id="labelMedium">
+                            <input type="radio" id="medium" name="level" value="medium" ${this.level === 'medium' ? 'checked' : ''} required>Medium (${getTiemeLimit('medium')} sec)
+                        </label>
+                        <label class="levelLabels" id="labelHard">
+                            <input type="radio" id="hard" name="level" value="hard" ${this.level === 'hard' ? 'checked' : ''} required>Hard (${getTiemeLimit('hard')} sec) 
+                        </label>
+              </div>
 
-              <label class="levelLabels">
-                <input type="radio" id="hard" name="level" value="hard" ${this.level === 'hard' ? 'checked' : ''} required>Hard (${getTiemeLimit( 'hard')}sec) ) 
-              </label>
-
-            </div>
               <input class="submitBtn" id="startGame" type="submit" value="START GAME">
           </form>
         </div>
@@ -103,11 +100,38 @@ export default class MathGame {
       // Set the main content to the generated game template
       document.querySelector('main').innerHTML = gameTemplate;
       document.getElementById('easy').checked = true;
+
+      //const operatorRadios = document.querySelectorAll('input[name="operator"]');
+      document.querySelectorAll('input[name="operator"]').forEach(radio => {
+          radio.addEventListener('change',
+            
+            (event) => this.updateLevelLabels(event));
+      } );
+
   
       // Add event listener for form submission
       document.getElementById('gameForm').addEventListener('submit', this.handleFormSubmit.bind(this));
     }
   
+
+    updateLevelLabels(event) {
+
+      const mandatory =  event.target.value;
+ 
+      const easyLabel = document.querySelector('#labelEasy');      
+      const mediumLabel = document.querySelector('#labelMedium');
+      const hardLabel = document.querySelector('#labelHard');
+
+     //  console.log(`easyLabel : ${easyLabel}     getTiemeLimit('easy' ,mandatory ):${getTiemeLimit('easy' ,mandatory )}`);
+  
+      easyLabel.innerHTML = `<input type="radio" id="easy" name="level" value="easy" ${this.level === 'easy' ? 'checked' : ''} required>Easy (${getTiemeLimit('easy', mandatory)} sec)`;
+      mediumLabel.innerHTML = `<input type="radio" id="medium" name="level" value="medium" ${this.level === 'medium' ? 'checked' : ''} required>Medium (${getTiemeLimit('medium', mandatory)} sec)`;
+      hardLabel.innerHTML = `<input type="radio" id="hard" name="level" value="hard" ${this.level === 'hard' ? 'checked' : ''} required>Hard (${getTiemeLimit('hard', mandatory)} sec)`;
+
+
+
+  }
+
     handleFormSubmit(event) {
       event.preventDefault();
       const alias = document.getElementById('alias').value;

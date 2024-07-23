@@ -29,12 +29,27 @@ export function renderWithTemplate(template, parentElement, data, callback) {
 
 
 
-  export function getTiemeLimit(level) {
-   // console.log(`function getTiemeLimit(level):${level}` );
+  export function getTiemeLimit(level,operator='math') {
 
-    if(level==='easy') return 22 ;
-    if(level==='medium') return 12;
+
+   if(operator==='tri'){
+    
+   console.log(`function getTiemeLimit(level):${level}   operator:${operator}` );
+
+    if(level==='easy') return 22 * 2 ;
+    if(level==='medium') return 12 * 2;
+    return 7 *2;
+
+    
+   }else{
+
+     if(level==='easy') return 22 ;
+     if(level==='medium') return 12;
     return 7;
+
+
+   }
+    
   }
                 
  

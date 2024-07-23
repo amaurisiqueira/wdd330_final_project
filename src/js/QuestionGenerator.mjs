@@ -106,7 +106,7 @@ export default class QuestionGenerator {
       difficulty: level,
       category: "math",
       tag: [operand1, operator, operand2],
-      timeLimit: getTiemeLimit(level),
+      timeLimit: getTiemeLimit(level ,operator),
     };
   }
 
@@ -138,7 +138,7 @@ export default class QuestionGenerator {
       difficulty: level,
       category: data_trivia.category ,
       tag: data_trivia.tags ,
-      timeLimit: getTiemeLimit(level),
+      timeLimit: getTiemeLimit(level,'tri'),
     };
   }
 

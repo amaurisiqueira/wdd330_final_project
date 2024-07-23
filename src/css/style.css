@@ -113,6 +113,14 @@ footer{
 
 .operationLabels{
   margin:5px;
+  transition: background-color 0.5s; 
+  position: relative;
+}
+
+.operationLabels:hover { 
+  transform: scale(1.2);
+  background-color: rgba(128, 128, 128, 0.5);  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
  
@@ -273,14 +281,14 @@ label {
   background-color: var(--yellow);
   color:var(--blue);
 }
-/*
+
 .answer:hover {
  
   transform: scale(1.05);
   background-color: darkblue;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-*/
+
 .answer.active {
   background-color: #45a049;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -528,3 +536,8 @@ label {
   width: 100%;
 }
  
+
+#restartGame{
+
+  display: block;
+}

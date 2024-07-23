@@ -11,6 +11,9 @@ export default class Quiz {
     this.selectedAnswerIndex = null;
      
     this.textBack=null;
+
+ 
+
   }
 
   renderQuestion(container) {
@@ -222,10 +225,37 @@ handleAnswer(event) {
     container.innerHTML = `
       <div>
         <h2>Your Score: ${this.score}</h2>
+
+          <input class="submitBtn" id="restartGame" type="submit" value="NEW GAME ?">
       </div>
     `;
+
+    document.getElementById('restartGame').addEventListener('click', this.handleRestart.bind(this));
+
   }
+
+
+  handleRestart(event) {
+    /*event.preventDefault();
+    const alias = document.getElementById('alias').value;
+    const operator = document.querySelector('input[name="operator"]:checked').value;
+    const level = document.querySelector('input[name="level"]:checked').value;
+    
+
+    this.setAlias(alias);
+    this.setOperator(operator);
+    this.setLevel(level);
+ 
+     // Almacenar datos en localStorage
+   localStorage.setItem('mathGame', JSON.stringify(this));
+   // Redirect to quiz page*/
+   window.location.href = '/index.html';
+
+   
+  }
+  
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const popup = document.getElementById('popup');
@@ -238,3 +268,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
