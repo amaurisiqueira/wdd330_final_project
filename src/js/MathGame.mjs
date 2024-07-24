@@ -122,7 +122,7 @@ export default class MathGame {
       const mediumLabel = document.querySelector('#labelMedium');
       const hardLabel = document.querySelector('#labelHard');
 
-     //  console.log(`easyLabel : ${easyLabel}     getTiemeLimit('easy' ,mandatory ):${getTiemeLimit('easy' ,mandatory )}`);
+     ////   console.log(`easyLabel : ${easyLabel}     getTiemeLimit('easy' ,mandatory ):${getTiemeLimit('easy' ,mandatory )}`);
   
       easyLabel.innerHTML = `<input type="radio" id="easy" name="level" value="easy" ${this.level === 'easy' ? 'checked' : ''} required>Easy (${getTiemeLimit('easy', mandatory)} sec)`;
       mediumLabel.innerHTML = `<input type="radio" id="medium" name="level" value="medium" ${this.level === 'medium' ? 'checked' : ''} required>Medium (${getTiemeLimit('medium', mandatory)} sec)`;

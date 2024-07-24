@@ -20,7 +20,7 @@ export default class Quiz {
     if (this.currentQuestionIndex < this.questions.length) {
       const question = this.questions[this.currentQuestionIndex];
 
-      console.log(`question.alias:${this.alias}`);
+    //   console.log(`question.alias:${this.alias}`);
       container.innerHTML = `
         <div class="questionForm">
             <div class="questionId">0</div>
@@ -62,7 +62,7 @@ export default class Quiz {
           button.addEventListener('click', (e) =>this.handleAnswer(e));
           button.addEventListener('mouseover', () => {      
               button.classList.add('active');
-            //  console.log(` button.classList.add('active');`);
+            ////   console.log(` button.classList.add('active');`);
           });
            button.addEventListener('mouseout', () => {
             button.classList.remove('active');  
@@ -80,14 +80,14 @@ export default class Quiz {
 
       this.startTimerLeft(container);
     } else {
-      console.log('Call End Game');
+    //   console.log('Call End Game');
       this.showResults(container);
     }
   }
 
   startTimerLeft(container) {
     let timeLeft = this.questions[this.currentQuestionIndex].timeLimit; // Set the time limit for each question
-    console.log(`this.questions[this.currentQuestionIndex].timeLimit: ${this.questions[this.currentQuestionIndex].timeLimit}`);
+  //   console.log(`this.questions[this.currentQuestionIndex].timeLimit: ${this.questions[this.currentQuestionIndex].timeLimit}`);
     const timeDisplay = container.querySelector('#timeLeft');
     this.timer = setInterval(() => {
       if (timeLeft > 0) {
@@ -115,7 +115,7 @@ export default class Quiz {
     const popup = document.getElementById('popup');
     popup.classList.remove('hidden');
  
-    console.log(`value:${value}`);
+  //   console.log(`value:${value}`);
 
     if(value !==null){
         
@@ -146,7 +146,7 @@ export default class Quiz {
 
  
 handleAnswer(event) {
-    console.log('handleAnswer called');
+  //   console.log('handleAnswer called');
     clearInterval(this.timer); // Stop the timer when an answer is clicked
 
       this.selectedAnswerIndex = parseInt(event.target.dataset.index, 10);
@@ -155,13 +155,13 @@ handleAnswer(event) {
 
     // Mostrar el popup
     if( this.selectedAnswerIndex === correctAnswerIndex){
-        console.log('CORRECTO!');
+      //   console.log('CORRECTO!');
     
         this.showPopup(true);
 
     }
     else{
-        console.log('EQUIVOCADO!');
+      //   console.log('EQUIVOCADO!');
         this.showPopup(false);
     
     }
@@ -181,14 +181,14 @@ handleAnswer(event) {
             quizContainer.classList.remove('correct-answer', 'incorrect-answer');
             let animationClass = 'incorrect-answer';
 
-            console.log(`confirmButton.onclick = ()   this.selectedAnswerIndex:${ this.selectedAnswerIndex}  correctAnswerIndex:${correctAnswerIndex}    `);;
+          //   console.log(`confirmButton.onclick = ()   this.selectedAnswerIndex:${ this.selectedAnswerIndex}  correctAnswerIndex:${correctAnswerIndex}    `);;
 
             if (this.selectedAnswerIndex === correctAnswerIndex) {
                 this.score++;
                 animationClass = 'correct-answer';
-                console.log(`animationClass`);
+              //   console.log(`animationClass`);
             }else{
-              console.log(`incorrect`);
+            //   console.log(`incorrect`);
             }
 
             document.querySelector('#currentScore').innerHTML = `${this.score}`;
@@ -236,19 +236,9 @@ handleAnswer(event) {
 
 
   handleRestart(event) {
-    /*event.preventDefault();
-    const alias = document.getElementById('alias').value;
-    const operator = document.querySelector('input[name="operator"]:checked').value;
-    const level = document.querySelector('input[name="level"]:checked').value;
-    
 
-    this.setAlias(alias);
-    this.setOperator(operator);
-    this.setLevel(level);
- 
-     // Almacenar datos en localStorage
-   localStorage.setItem('mathGame', JSON.stringify(this));
-   // Redirect to quiz page*/
+   //clear data
+   localStorage.removeItem('mathGame'); 
    window.location.href = '/index.html';
 
    

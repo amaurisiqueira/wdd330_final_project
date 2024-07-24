@@ -17,7 +17,7 @@ export default async function displayWeather() {
     document.querySelector('#currentWheather').innerHTML= `, Temperature in Santiago, Chile: ${temperature}°C`;
        
   } catch (error) {
-    console.error('Error retrieving weather data:', error);
+    //   console.error('Error retrieving weather data:', error);
   }
 }
  

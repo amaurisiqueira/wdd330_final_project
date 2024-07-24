@@ -20,7 +20,7 @@ export default class MathApi {
             const data = await response.json();
             return data.result;
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            //   console.error('There was a problem with the fetch operation:', error);
             throw error;
         }
     }

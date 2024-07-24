@@ -61,10 +61,10 @@ export default class QuestionGenerator {
         let candidate;
         do {
           candidate = this.generateRandomNumber(level);
- //          console.log(`in do existingNumbers${existingNumbers}`);
+ //        //   console.log(`in do existingNumbers${existingNumbers}`);
         } while (existingNumbers.has(candidate)); // Repetir mientras el candidato ya exista
 
-  //      console.log(`escojido --> candidate${candidate}`);
+  //    //   console.log(`escojido --> candidate${candidate}`);
 
         myArray[x] = candidate;
         existingNumbers.add(candidate); // Añadir el candidato al Set
@@ -116,7 +116,7 @@ export default class QuestionGenerator {
 
   
     const data_trivia = triviaApi.getData(myid);
-    console.log(`data_trivia:${data_trivia}`);
+  //   console.log(`data_trivia:${data_trivia}`);
 
     /*category:this.data[myId].category,
     question:this.data[myId].question,
@@ -146,18 +146,18 @@ export default class QuestionGenerator {
   async generateQuestions(level, operator, count = 10) {
     const questions = [];
 
-  //   console.log(`operator:${operator} `);
+  // //   console.log(`operator:${operator} `);
 
 
     if(operator==='tri'){
       
       const triviaApi = await TriviaApi.initialize(level);
 
-      console.log(`triviaApi:${triviaApi}`);
+    //   console.log(`triviaApi:${triviaApi}`);
       for (let i = 0; i < count; i++) {
         const question = await this.generateTriviaQuestion(  triviaApi ,level, operator, i);
   
-        //  console.log(`${question.id} ${question.answers} ${question.timeLimit}`);
+        ////   console.log(`${question.id} ${question.answers} ${question.timeLimit}`);
         questions.push(question);
       } 
     }else{
@@ -167,13 +167,13 @@ export default class QuestionGenerator {
       for (let i = 0; i < count; i++) {
         const question = await this.generateMathQuestion(  mathApi ,level, operator, i);
   
-        //  console.log(`${question.id} ${question.answers} ${question.timeLimit}`);
+        ////   console.log(`${question.id} ${question.answers} ${question.timeLimit}`);
         questions.push(question);
       }
   
     }
    
-    //  console.log(`generateMathQuestion:${questions} `);
+    ////   console.log(`generateMathQuestion:${questions} `);
 
     return questions;
   }

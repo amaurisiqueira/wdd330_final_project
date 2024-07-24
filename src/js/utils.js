@@ -34,7 +34,7 @@ export function renderWithTemplate(template, parentElement, data, callback) {
 
    if(operator==='tri'){
     
-   console.log(`function getTiemeLimit(level):${level}   operator:${operator}` );
+ //   console.log(`function getTiemeLimit(level):${level}   operator:${operator}` );
 
     if(level==='easy') return 22 * 2 ;
     if(level==='medium') return 12 * 2;

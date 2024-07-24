@@ -15,7 +15,7 @@ export default class TriviaApi {
     
       
                const data = await TriviaApi.receiveData();
-               console.log(`initialize this.data:${  data}`); 
+             //   console.log(`initialize this.data:${  data}`); 
         return new TriviaApi(level, data);
     }
 
@@ -43,29 +43,29 @@ export default class TriviaApi {
     }
     static async receiveData() {
         try {
-            console.log(`this.baseURL :${this.baseURL }`);
+          //   console.log(`this.baseURL :${this.baseURL }`);
 
             const response = await fetch(this.baseURL );
-            console.log(`Trivia response:${JSON.stringify( response)} `)  
+          //   console.log(`Trivia response:${JSON.stringify( response)} `)  
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
 
             const received = await response.json();
-            console.log('Received data:', received); //   datos recibidos en JSON
+          //   console.log('Received data:', received); //   datos recibidos en JSON
  
  
             this.data = this.getRandomQuestions(received, 10);  
 
             
 
-              console.log(`static async receiveData() : ${ this.data}`);
+            //   console.log(`static async receiveData() : ${ this.data}`);
            // console.log(`Trivia data stored in this.data: ${JSON.stringify(this.data)}`); //   almacenados en this.data
        
              return this.data;  
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            //   console.error('There was a problem with the fetch operation:', error);
             throw error;
         }
     }

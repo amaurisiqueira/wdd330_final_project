@@ -18,16 +18,16 @@ async function startQuiz() {
    const savedGame = localStorage.getItem('mathGame');
    if (savedGame) {
      const gameData = JSON.parse(savedGame);
-     console.log(gameData);
+   //   console.log(gameData);
 
-     console.log(gameData.alias);
+   //   console.log(gameData.alias);
 
        alias = gameData.alias;
        operator = gameData.operator;
        level = gameData.level;
-       console.log(`startQuiz level:${level}`);
+     //   console.log(`startQuiz level:${level}`);
    } else {
-       console.error('No localStorage data');
+       ////   console.error('No localStorage data');
    }
 
 
@@ -36,7 +36,7 @@ async function startQuiz() {
   try {
     const questions = await questionGenerator.generateQuestions(level,operator);
 
-    console.log(`before Quiz level:${level}`);
+  //   console.log(`before Quiz level:${level}`);
     const quiz = new Quiz(questions,alias , level);
     
     const quizContainer = document.querySelector('main');
@@ -44,7 +44,7 @@ async function startQuiz() {
 
     loadHeaderFooter();
   } catch (error) {
-    console.error('Failed to start quiz:', error);
+    //   console.error('Failed to start quiz:', error);
   }
 }
 
