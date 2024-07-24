@@ -222,9 +222,12 @@ label {
   position: relative;
 }
 .questionDiv{
-  font-family: var(--font-headline);
+  font-family: var( --font-body);
+  font-weight: bold;
   font-size: 2em;
-
+  color: var(--white);
+  box-shadow: 0 4px 8px rgba(51, 51, 51, 0.5);
+  text-shadow: 2px 2px 4px rgba(51, 51, 51, 0.5); /
   margin:auto;
   }
 
@@ -235,7 +238,7 @@ label {
   text-align: center;
   max-width:60%;
   padding: 20px;
-  box-shadow: 2px 3px 5px darkcyan;
+  box-shadow: 2px 3px 5px black;
 }
 
 .question,.answerLabel{
@@ -249,7 +252,7 @@ label {
   display: flex;
   flex-direction: column;
   font-family: var(--font-body);
-  font-size: 2em ;
+  font-size: 1.3em ;
   color: var(--blue);
 }
 
@@ -265,7 +268,7 @@ label {
 
 .answerLabel{
  
-  font-size: 1.3em;
+
   border-style: solid;
   border-radius: 5px;
   text-align: center;
@@ -277,7 +280,9 @@ label {
 }
 
 .answer {
-  font-family:var(--font-headline);
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: var(--font-body);
   background-color: var(--yellow);
   color:var(--blue);
 }

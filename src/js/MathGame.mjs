@@ -1,6 +1,7 @@
 // main.js
 
 import { getTiemeLimit } from "./utils.js";
+import { toCapital } from "./utils.js";
 
 export default class MathGame {
     constructor() {
@@ -134,7 +135,7 @@ export default class MathGame {
 
     handleFormSubmit(event) {
       event.preventDefault();
-      const alias = document.getElementById('alias').value;
+      const alias = toCapital( document.getElementById('alias').value );
       const operator = document.querySelector('input[name="operator"]:checked').value;
       const level = document.querySelector('input[name="level"]:checked').value;
       

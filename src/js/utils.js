@@ -9,6 +9,13 @@ export function renderWithTemplate(template, parentElement, data, callback) {
     }
   }
   
+
+  export function toCapital(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+  }
+
   async function loadTemplate(path) {
     const res = await fetch(path);
     const template = await res.text();
